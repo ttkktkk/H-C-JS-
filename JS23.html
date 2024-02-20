@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マウスオーバーで音声再生</title>
+</head>
+<body>
+
+<p onmouseover="playAudio()" onmouseout="pauseAudio()">マウスをここに乗せると音声が再生されます。</p>
+
+<audio id="audio" src="NoScrub.mp3"></audio>
+
+<script>
+var audio = document.getElementById("audio");
+
+function playAudio() {
+  audio.currentTime = 0; // 再生位置をリセット
+  audio.play();
+}
+
+function pauseAudio() {
+  audio.pause();
+}
+</script>
+
+</body>
+</html>

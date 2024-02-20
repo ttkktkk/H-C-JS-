@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボリューム調整</title>
+</head>
+<body>
+
+<input type="range" min="0" max="1" step="0.1" value="1" id="volumeSlider">
+<audio id="audio" src="NoScrub.mp3"></audio>
+
+<script>
+var audio = document.getElementById("audio");
+var volumeSlider = document.getElementById("volumeSlider");
+
+volumeSlider.addEventListener("input", function() {
+  audio.volume = volumeSlider.value;
+});
+</script>
+
+</body>
+</html>

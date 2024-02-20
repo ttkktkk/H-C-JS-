@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チェックボックスによる表示切り替え</title>
+</head>
+<body>
+
+<label><input type="checkbox" id="checkbox"> コンテンツを表示する</label>
+
+<div id="content" style="display: none;">
+  ここに表示するコンテンツが入ります。
+</div>
+
+<script>
+var checkbox = document.getElementById("checkbox");
+var content = document.getElementById("content");
+
+checkbox.addEventListener("change", function() {
+  if (checkbox.checked) {
+    content.style.display = "block";
+  } else {
+    content.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>

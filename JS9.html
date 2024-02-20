@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドラッグ方向アイコン</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+
+  #drag-icon {
+    display: none;
+    position: fixed;
+    font-size: 50px;
+  }
+</style>
+</head>
+<body>
+
+<div id="drag-icon">➡️</div>
+
+<script>
+var dragIcon = document.getElementById("drag-icon");
+
+document.addEventListener("mousedown", function(event) {
+  // ドラッグを開始する座標を取得
+  var startX = event.clientX;
+  var startY = event.clientY;
+
+  // ドラッグ中のマウス移動を検出
+  document.addEventListener("mousemove", handleDragMove);
+
+  // ドラッグが終了した際の処理
+  document.addEventListener("mouseup", function() {
+    dragIcon.style.display = "none";
+    document.removeEventListener("mousemove", handleDragMove);
+  });
+
+  // ドラッグ中のマウス移動を処理する関数
+  function handleDragMove(event) {
+    var endX = event.clientX;
+    var endY = event.clientY;
+
+    // ドラッグの方向を判定し、アイコンを表示
+    var deltaX = endX - startX;
+    var deltaY = endY - startY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // 横方向のドラッグ
+      if (deltaX > 0) {
+        dragIcon.textContent = "➡️"; // 右方向
+      } else {
+        dragIcon.textContent = "⬅️"; // 左方向
+      }
+    } else {
+      // 縦方向のドラッグ
+      if (deltaY > 0) {
+        dragIcon.textContent = "⬇️"; // 下方向
+      } else {
+        dragIcon.textContent = "⬆️"; // 上方向
+      }
+    }
+
+    // アイコンをドラッグ中の位置に表示
+    dragIcon.style.left = endX + "px";
+    dragIcon.style.top = endY + "px";
+    dragIcon.style.display = "block";
+  }
+});
+</script>
+
+</body>
+</html>

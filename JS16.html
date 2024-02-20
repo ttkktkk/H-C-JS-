@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>フォーム送信</title>
+</head>
+<body>
+
+<form id="myForm" onsubmit="validateForm(event)">
+  <label for="name">名前:</label>
+  <input type="text" id="name" name="name" required><br><br>
+  <label for="email">Eメール:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <input type="submit" value="送信">
+</form>
+
+<script>
+function validateForm(event) {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+
+  if (name.trim() === "" || email.trim() === "") {
+    alert("名前とEメールを入力してください。");
+    event.preventDefault(); // フォーム送信をキャンセル
+  }
+}
+</script>
+
+</body>
+</html>

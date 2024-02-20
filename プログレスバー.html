@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プログレスバー</title>
+<style>
+  .progress {
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .skill {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="skill">スキル1 (70%)</div>
+<div class="progress">
+  <div class="progress-bar" style="width: 70%;"></div>
+</div>
+
+<div class="skill">スキル2 (80%)</div>
+<div class="progress">
+  <div class="progress-bar" style="width: 80%;"></div>
+</div>
+
+<div class="skill">スキル3 (90%)</div>
+<div class="progress">
+  <div class="progress-bar" style="width: 90%;"></div>
+</div>
+
+<div class="skill">スキル4 (95%)</div>
+<div class="progress">
+  <div class="progress-bar" style="width: 95%;"></div>
+</div>
+
+<div class="skill">スキル5 (100%)</div>
+<div class="progress">
+  <div class="progress-bar" style="width: 100%;"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カレンダー</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  td.today {
+    background-color: #ffffcc;
+  }
+</style>
+</head>
+<body>
+
+<h2 id="currentMonth"></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>日</th>
+      <th>月</th>
+      <th>火</th>
+      <th>水</th>
+      <th>木</th>
+      <th>金</th>
+      <th>土</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <!-- 他の週と日付をここに追加 -->
+  </tbody>
+</table>
+
+<script>
+// 今日の日付を取得
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; // 0-indexed
+var yyyy = today.getFullYear();
+
+// カレンダーの日付を表示
+var table = document.querySelector('table tbody');
+var daysInMonth = new Date(yyyy, mm, 0).getDate(); // 月の日数
+var firstDayOfMonth = new Date(yyyy, mm - 1, 1).getDay(); // 月の最初の曜日 (0-indexed)
+var date = 1;
+
+// 今の月の表示
+document.getElementById('currentMonth').textContent = mm + '月';
+
+for (var i = 0; i < 6; i++) { // 最大6週間分のループ
+  var row = document.createElement('tr');
+  for (var j = 0; j < 7; j++) { // 週の日数分のループ
+    if ((i === 0 && j < firstDayOfMonth) || date > daysInMonth) {
+      row.innerHTML += '<td></td>'; // 空白のセルを挿入
+    } else {
+      var cell = document.createElement('td');
+      cell.textContent = date;
+      if (date === dd && mm === (today.getMonth() + 1) && yyyy === today.getFullYear()) {
+        cell.classList.add('today'); // 今日の日付にクラスを追加
+      }
+      row.appendChild(cell);
+      date++;
+    }
+  }
+  table.appendChild(row);
+}
+</script>
+
+</body>
+</html>

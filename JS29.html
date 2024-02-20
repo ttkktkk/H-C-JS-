@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ウィンドウ非アクティブ前の確認ダイアログ</title>
+<script>
+// ウィンドウが非アクティブになる前に確認ダイアログを表示
+window.addEventListener("blur", function() {
+  var confirmation = confirm("ページを離れますか？");
+  if (confirmation) {
+    alert("ページを離れました");
+  } else {
+    // ページを離れるのをキャンセル
+    window.focus();
+  }
+});
+</script>
+</head>
+<body>
+
+<p>このページを離れると確認ダイアログが表示されます。</p>
+
+</body>
+</html>

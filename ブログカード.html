@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブログカード</title>
+  <style>
+    .blog-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      width: 300px;
+    }
+    .blog-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .blog-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px 10px 0 0;
+    }
+    .blog-card-content {
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .blog-card h2 {
+      margin-top: 0;
+    }
+    .blog-card p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-card">
+    <img src="3.jpg" alt="ブログ画像">
+    <div class="blog-card-content">
+      <h2>ブログのタイトル</h2>
+      <p>ここにブログの概要が書かれます。</p>
+    </div>
+  </div>
+</body>
+</html>

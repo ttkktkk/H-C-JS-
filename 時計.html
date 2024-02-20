@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタル時計</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  #clock {
+    font-size: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+function updateClock() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  // 1桁の場合は0を付け足す
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  var timeString = hours + ":" + minutes + ":" + seconds;
+  document.getElementById("clock").textContent = timeString;
+}
+
+// 1秒ごとに時計を更新
+setInterval(updateClock, 1000);
+
+// 初期表示
+updateClock();
+</script>
+
+</body>
+</html>

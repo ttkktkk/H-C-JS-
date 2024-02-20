@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問</title>
+<style>
+  .question {
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .answer {
+    display: none;
+    margin-left: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="question" onclick="toggleAnswer('q1')">質問1. この製品はどのように使いますか？</div>
+<div id="q1" class="answer">
+  <p>回答1. この製品の使い方は簡単です。xxxxという手順に従ってください。</p>
+</div>
+
+<div class="question" onclick="toggleAnswer('q2')">質問2. 製品の保証はありますか？</div>
+<div id="q2" class="answer">
+  <p>回答2. はい、当社の製品には1年間の製品保証が付いています。</p>
+</div>
+
+<div class="question" onclick="toggleAnswer('q3')">質問3. この製品はどのような支払い方法がありますか？</div>
+<div id="q3" class="answer">
+  <p>回答3. クレジットカード、銀行振込、PayPalなど、さまざまな支払い方法を提供しています。</p>
+</div>
+
+<div class="question" onclick="toggleAnswer('q4')">質問4. 配送料はいくらですか？</div>
+<div id="q4" class="answer">
+  <p>回答4. 配送料は地域や商品によって異なります。詳細はお問い合わせください。</p>
+</div>
+
+<div class="question" onclick="toggleAnswer('q5')">質問5. 返品ポリシーはありますか？</div>
+<div id="q5" class="answer">
+  <p>回答5. 商品の返品は30日以内に受け付けています。詳細は返品ポリシーをご確認ください。</p>
+</div>
+
+<script>
+function toggleAnswer(id) {
+  var answer = document.getElementById(id);
+  if (answer.style.display === 'block') {
+    answer.style.display = 'none';
+  } else {
+    answer.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>

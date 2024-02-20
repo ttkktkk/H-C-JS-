@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホバーエフェクトのボタン</title>
+<style>
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: none;
+    transition: background-color 0.3s, border-width 0.3s, color 0.3s;
+    margin: 10px;
+  }
+
+  /* カラーフェード */
+  .button.color-fade:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* ボーダーフェード */
+  .button.border-fade:hover {
+    border-width: 4px;
+  }
+
+  /* 下線エフェクト */
+  .button.underline-fade {
+    position: relative;
+  }
+
+  .button.underline-fade:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s;
+  }
+
+  .button.underline-fade:hover:after {
+    width: 80%;
+  }
+</style>
+</head>
+<body>
+
+<a href="#" class="button color-fade">カラーフェード</a>
+<a href="#" class="button border-fade">ボーダーフェード</a>
+<a href="#" class="button underline-fade">下線エフェクト</a>
+
+</body>
+</html>

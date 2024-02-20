@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アクティビティ確認</title>
+</head>
+<body>
+
+<script>
+var timeout;
+
+// ページが読み込まれたらタイマーをセット
+document.addEventListener("DOMContentLoaded", function() {
+  resetTimer();
+});
+
+// マウスが移動したらタイマーをリセット
+document.addEventListener("mousemove", resetTimer);
+
+// キーボードが押されたらタイマーをリセット
+document.addEventListener("keydown", resetTimer);
+
+// タイマーをリセットする関数
+function resetTimer() {
+  clearTimeout(timeout); // 既存のタイマーをクリア
+  timeout = setTimeout(function() {
+    // 一分間操作がなかった場合にアラートを表示
+    alert("まだいますか？");
+  }, 60000); // 60000ミリ秒 = 1分
+}
+</script>
+
+</body>
+</html>

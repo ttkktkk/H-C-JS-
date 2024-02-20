@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ウィンドウのアクティブ状態</title>
+</head>
+<body>
+
+<script>
+window.addEventListener("blur", function() {
+  document.title = "非アクティブ状態";
+});
+
+window.addEventListener("focus", function() {
+  document.title = "アクティブ状態";
+});
+</script>
+
+</body>
+</html>

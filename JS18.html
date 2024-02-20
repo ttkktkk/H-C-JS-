@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セレクトボックスの順番逆転</title>
+</head>
+<body>
+
+<select id="mySelect" onchange="reverseOptions()">
+  <option value="1">選択肢1</option>
+  <option value="2">選択肢2</option>
+  <option value="3">選択肢3</option>
+</select>
+
+<script>
+function reverseOptions() {
+  var selectElement = document.getElementById("mySelect");
+  var options = Array.from(selectElement.options);
+  options.reverse(); // 選択肢の順番を逆転
+
+  while (selectElement.options.length > 0) {
+    selectElement.remove(0);
+  }
+
+  options.forEach(function(option) {
+    selectElement.add(option);
+  });
+}
+</script>
+
+</body>
+</html>

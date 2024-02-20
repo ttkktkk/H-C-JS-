@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>キーボードイベント</title>
+</head>
+<body>
+
+<script>
+document.addEventListener("keydown", function(event) {
+  // 押されたキーのキーコードを取得
+  var keyCode = event.keyCode;
+
+  // キーコードに応じてイベントを実行
+  switch(keyCode) {
+    case 65: // "A" キー
+      alert("A キーが押されました");
+      break;
+    case 66: // "B" キー
+      alert("B キーが押されました");
+      break;
+    // 他のキーに対する処理を追加
+    default:
+      // 何もしない
+  }
+});
+</script>
+
+</body>
+</html>

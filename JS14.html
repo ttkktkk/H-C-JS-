@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マウスオーバーでフェードアウト</title>
+<style>
+  #fade-out-element {
+    width: 200px;
+    height: 200px;
+    background-color: #007bff;
+    margin: 20px auto;
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+</head>
+<body>
+
+<div id="fade-out-element" onmouseleave="fadeOutElement()"></div>
+
+<script>
+function fadeOutElement() {
+  var element = document.getElementById("fade-out-element");
+  element.style.opacity = 0;
+}
+</script>
+
+</body>
+</html>

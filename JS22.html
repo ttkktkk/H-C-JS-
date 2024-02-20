@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文字入力ヒント</title>
+</head>
+<body>
+
+<label for="inputBox">文字を入力してください:</label>
+<input type="text" id="inputBox" oninput="showHint(this.value)">
+
+<p id="hint" style="display:none; color: green;"></p>
+
+<script>
+function showHint(inputText) {
+  var hintElement = document.getElementById("hint");
+  var hint = getHint(inputText);
+
+  if (hint !== "") {
+    hintElement.textContent = "ヒント: " + hint;
+    hintElement.style.display = "block";
+  } else {
+    hintElement.style.display = "none";
+  }
+}
+
+function getHint(inputText) {
+  // 特定の文字に関連するヒントを返すロジック
+  if (inputText === "A") {
+    return "Aに関するヒントです。";
+  } else if (inputText === "B") {
+    return "Bに関するヒントです。";
+  } else {
+    return "";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドラッグ＆ドロップ</title>
+<style>
+  .draggable {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    position: absolute;
+    cursor: grab;
+  }
+</style>
+</head>
+<body>
+
+<div id="draggableElement" class="draggable" draggable="true" ondragstart="drag(event)"></div>
+
+<script>
+function drag(event) {
+  event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+document.addEventListener("dragover", function(event) {
+  event.preventDefault();
+});
+
+document.addEventListener("drop", function(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text/plain");
+  var draggedElement = document.getElementById(data);
+  var offsetX = event.clientX - draggedElement.offsetWidth / 2;
+  var offsetY = event.clientY - draggedElement.offsetHeight / 2;
+  draggedElement.style.left = offsetX + "px";
+  draggedElement.style.top = offsetY + "px";
+});
+</script>
+
+</body>
+</html>
+

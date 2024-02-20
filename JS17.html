@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タブキーフォーカスハイライト</title>
+<style>
+  .highlight {
+    outline: 2px solid #007bff;
+    outline-offset: -2px;
+  }
+</style>
+</head>
+<body>
+
+<div id="focusElement" tabindex="0" onfocus="addHighlight()" onblur="removeHighlight()">
+  ここにタブキーでフォーカスを当ててみてください。
+</div>
+
+<script>
+var focusElement = document.getElementById("focusElement");
+
+function addHighlight() {
+  focusElement.classList.add("highlight");
+}
+
+function removeHighlight() {
+  focusElement.classList.remove("highlight");
+}
+</script>
+
+</body>
+</html>

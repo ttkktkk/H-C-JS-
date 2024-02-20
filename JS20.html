@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スクロールに応じたナビゲーションバーの背景色変更</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 2000px; /* スクロール可能な高さを確保するためのダミーの高さ */
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    transition: background-color 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8); /* 初期の背景色 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .navbar.scrolled {
+    background-color: #007bff; /* スクロール時の背景色 */
+    color: #fff; /* スクロール時のテキスト色 */
+  }
+
+  .content {
+    margin-top: 80px; /* ナビゲーションバーの高さ分の余白を追加 */
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  ナビゲーションバー
+</div>
+
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at tellus eget ex hendrerit malesuada. Proin nec nisi vehicula, tristique metus ac, posuere mauris. Integer sagittis nulla id erat lobortis, vitae mollis risus ultricies. Donec in lacus ultricies, hendrerit eros id, vestibulum lacus. Sed vehicula massa id metus pharetra efficitur. Nulla facilisi. Quisque commodo, tortor id placerat tristique, libero ligula finibus sapien, in feugiat sapien mauris a magna. Integer ac tincidunt lacus. Ut consequat volutpat nunc, ac molestie eros euismod sed.</p>
+  <p>Mauris fermentum, dolor et scelerisque tincidunt, eros mi lacinia tellus, eget viverra risus elit sit amet purus. Fusce hendrerit magna nec massa suscipit aliquet. Nunc tincidunt, sapien at sollicitudin fermentum, est nisi finibus libero, at suscipit nisi erat vel dolor. Nulla ultricies felis id magna tincidunt volutpat. In sit amet eleifend odio. Curabitur euismod quam eu odio fermentum, vel consequat velit eleifend. Sed venenatis suscipit sagittis.</p>
+  <p>Quisque vestibulum, mauris nec vehicula volutpat, ligula ex suscipit orci, non vestibulum elit velit sed dui. Aenean laoreet libero vel velit vehicula aliquet. Vestibulum tempus velit non ipsum vehicula, sed rhoncus metus eleifend. Vivamus gravida purus sit amet libero ultricies, ac consequat enim fringilla. In hac habitasse platea dictumst. Integer posuere, nisl ut congue ultricies, nisl eros sollicitudin felis, vel ultrices tortor sapien sit amet dolor. Cras feugiat venenatis pretium.</p>
+  <p>Donec auctor neque vel felis condimentum, id lobortis sem malesuada. Integer interdum enim vel ante dapibus, non dapibus justo dapibus. Curabitur in metus non dui laoreet eleifend nec nec est. Nullam vel magna ut dui ultricies elementum. Phasellus vestibulum eros non tellus convallis, in varius leo ultrices. Morbi sit amet enim id erat vehicula eleifend. Vestibulum feugiat, dolor ut vulputate vestibulum, urna leo laoreet magna, at eleifend lorem felis vel nibh. Fusce et tortor scelerisque, hendrerit arcu sed, pharetra libero.</p>
+</div>
+
+<script>
+window.addEventListener("scroll", function() {
+  var navbar = document.getElementById("navbar");
+  if (window.scrollY > 0) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+</script>
+
+</body>
+</html>
